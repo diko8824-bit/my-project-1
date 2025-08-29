@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A premium e-commerce platform with dark/light theme, login, cart, and dynamic animations.">
+    <meta name="keywords" content="e-commerce, web design, freelance, shopping, responsive">
+    <title>Elite Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Elite Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cart">Cart <i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge">0</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="btn btn-outline-light"><i class="fas fa-moon"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" data-aos="zoom-in">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Sign In / Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Sign in with your Google account</p>
+                    <button class="btn btn-outline-primary w-100" onclick="simulateGoogleLogin()">
+                        <i class="fab fa-google me-2"></i> Sign in with Google
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="section hero text-center">
+        <div class="container">
+            <h1 class="display-4" data-aos="fade-up">Welcome to <span class="typed-text"></span></h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">Shop exclusive products with a world-class experience.</p>
+            <a href="#products" class="btn btn-primary btn-lg mt-3" data-aos="fade-up" data-aos-delay="200">Discover Now</a>
+        </div>
+    </section>
+
+    <section id="products" class="section text-center">
+        <div class="container">
+            <h2 data-aos="fade-up">Top Picks</h2>
+            <div class="filter-buttons mb-4" data-aos="fade-up" data-aos-delay="100">
+                <button class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="electronics">Electronics</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="fashion">Fashion</button>
+            </div>
+            <div class="row products-container" id="products-container"></div>
+        </div>
+    </section>
+
+    <section id="about" class="section bg-light text-center">
+        <div class="container">
+            <h2 data-aos="fade-up">Why Choose Us</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Elite Store is dedicated to delivering premium products with unmatched quality and service. From cutting-edge electronics to trendy fashion, we curate the best for you. Enjoy fast shipping, secure payments, and 24/7 customer support.</p>
+            <div class="row mt-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-truck fa-3x mb-3"></i>
+                    <h5>Fast Delivery</h5>
+                    <p>Global shipping in 3-5 days.</p>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-shield-alt fa-3x mb-3"></i>
+                    <h5>Secure Payments</h5>
+                    <p>Trusted payment gateways.</p>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-headset fa-3x mb-3"></i>
+                    <h5>24/7 Support</h5>
+                    <p>Always here to assist you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="section text-center">
+        <div class="container">
+            <h2 data-aos="fade-up">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card review-card">
+                        <div class="card-body">
+                            <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
+                            <p class="mt-3">"Top-notch products and super fast delivery!"</p>
+                            <h6>- Sarah Wilson</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card review-card">
+                        <div class="card-body">
+                            <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star text-warning"></i>
+                            <p class="mt-3">"Amazing quality at great prices."</p>
+                            <h6>- Michael Brown</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card review-card">
+                        <div class="card-body">
+                            <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
+                            <p class="mt-3">"Best shopping experience ever!"</p>
+                            <h6>- Emily Davis</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section bg-light text-center">
+        <div class="container">
+            <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+            <div class="accordion mt-4" id="faqAccordion" data-aos="fade-up" data-aos-delay="100">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeading1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                            How long does shipping take?
+                        </button>
+                    </h2>
+                    <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1">
+                        <div class="accordion-body">
+                            Shipping takes 3-5 business days for standard delivery.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeading2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                            What payment methods do you accept?
+                        </button>
+                    </h2>
+                    <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2">
+                        <div class="accordion-body">
+                            We accept credit cards, PayPal, and bank transfers.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeading3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                            Can I return a product?
+                        </button>
+                    </h2>
+                    <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3">
+                        <div class="accordion-body">
+                            Yes, returns are accepted within 30 days of purchase.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cart" class="section text-center">
+        <div class="container">
+            <h2 data-aos="fade-up">Your Cart</h2>
+            <div id="cart-items" class="list-group mb-4" data-aos="fade-up" data-aos-delay="100"></div>
+            <p><strong>Total: $<span id="cart-total">0.00</span></strong></p>
+            <button class="btn btn-success" id="checkout-btn" disabled>Checkout</button>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-center py-4">
+        <p>&copy; 2025 Elite Store. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
