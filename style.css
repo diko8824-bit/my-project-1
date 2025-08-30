@@ -237,3 +237,12 @@ footer.bg-dark {
          height: 270px;
          object-fit: cover; /* برای حفظ نسبت تصویر */
      }
+}
+.card-img-top {
+         width: 100%;
+         height: 270px;
+         object-fit: cover; /* برای حفظ نسبت و پر کردن فضا */
+     }
+     .card {
+         height: 400px; /* تنظیم ارتفاع کل کارت برای یکنواختی */
+     }
